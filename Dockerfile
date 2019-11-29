@@ -31,8 +31,10 @@ mv phpMyAdmin-4.9.0.1-all-languages/ /var/www/html/phpMyAdmin;
 #     Config all     #
 ######################
 
-COPY srcs/nginx.conf /etc/nginx/sites-enabled/
+COPY srcs/nginx_custom.conf /etc/nginx/sites-enabled/
 COPY srcs/wp-config.php /var/www/html/wordpress/
+RUN rm -rf /var/www/html/index.html
+COPY srcs/index.html /var/www/html/
 
 ######################
 #       Launch       #
